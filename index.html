@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ASPAC Construction — Building Iraq's Future with Turkish Quality</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold: #C8A45D;
+  --gold-light: #D9BC84;
+  --gold-dark: #A8823D;
+  --black: #0A0A0A;
+  --dark: #111111;
+  --dark2: #1A1A1A;
+  --dark3: #242424;
+  --white: #FAFAF8;
+  --white2: #F0EDE8;
+  --muted: #888880;
+  --border: rgba(200,164,93,0.15);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+.font-display { font-family: 'Cormorant Garamond', serif; }
+.font-heading { font-family: 'Space Grotesk', sans-serif; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+/* Animations */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeInLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fadeInRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+@keyframes float1 { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-12px); } }
+@keyframes float2 { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-18px); } }
+@keyframes float3 { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-8px); } }
+@keyframes shimmer { 0% { background-position:-200% center; } 100% { background-position:200% center; } }
+@keyframes pulse-gold { 0%,100% { box-shadow:0 0 0 0 rgba(200,164,93,0.3); } 50% { box-shadow:0 0 0 20px rgba(200,164,93,0); } }
+@keyframes counterUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes lineGrow { from { width:0; } to { width:100%; } }
+@keyframes rotateBg { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+@keyframes gradientShift { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+
+.animate-float1 { animation: float1 4s ease-in-out infinite; }
+.animate-float2 { animation: float2 5s ease-in-out infinite; }
+.animate-float3 { animation: float3 6s ease-in-out infinite; }
+
+/* Reveal animations */
+.reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Gold text gradient */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gold-shimmer {
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold), var(--gold-dark));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Gold line */
+.gold-line {
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200,164,93,0.12);
+}
+.glass-dark {
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(200,164,93,0.1);
+}
+
+/* Gold button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-gold:hover::after { opacity: 1; }
+.btn-gold span { position: relative; z-index: 1; }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 32px;
+  border: 1px solid rgba(200,164,93,0.5);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(200,164,93,0.05);
+}
+
+/* Section label */
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 48px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.navbar.scrolled {
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(200,164,93,0.1);
+  height: 68px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.nav-logo-text { display: flex; flex-direction: column; }
+.nav-logo-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.nav-logo-sub {
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 3px;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-menu a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.7);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-menu a:hover { color: var(--white); }
+.nav-menu a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,10,10,0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+.mobile-nav a:hover { color: var(--gold); }
+.mobile-close {
+  position: absolute;
+  top: 28px; right: 24px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.7) 60%, rgba(10,10,10,0.85) 100%),
+    url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80&auto=format&fit=crop') center/cover no-repeat;
+  transform-origin: center;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10,10,10,0.9) 40%, transparent 100%);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--black), transparent);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.hero-content { flex: 1; max-width: 680px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,164,93,0.1);
+  border: 1px solid rgba(200,164,93,0.25);
+  border-radius: 100px;
+  padding: 8px 18px 8px 12px;
+  margin-bottom: 36px;
+  animation: fadeInUp 0.8s ease both;
+}
+.hero-badge-dot {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse-gold 2s infinite;
+}
+.hero-badge span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 8px;
+  animation: fadeInUp 0.9s 0.1s ease both;
+}
+.hero-headline strong {
+  font-weight: 700;
+  display: block;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+  animation: fadeInUp 1s 0.2s ease both;
+}
+.hero-divider-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.hero-services {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.hero-subtext {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 44px;
+  animation: fadeInUp 1s 0.25s ease both;
+}
+.hero-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.5);
+  padding: 6px 14px;
+  border: 1px solid rgba(250,250,248,0.08);
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+.hero-tag:hover {
+  border-color: rgba(200,164,93,0.3);
+  color: var(--gold-light);
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s 0.35s ease both;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: fadeInUp 1.2s 0.6s ease both;
+  cursor: pointer;
+}
+.hero-scroll span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.4);
+}
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, rgba(200,164,93,0.6), transparent);
+  animation: float1 2s ease-in-out infinite;
+}
+
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeInRight 1s 0.4s ease both;
+}
+.hero-stat-card {
+  background: rgba(10,10,10,0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(200,164,93,0.15);
+  border-radius: 8px;
+  padding: 20px 28px;
+  min-width: 200px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.hero-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+.hero-stat-card:hover {
+  border-color: rgba(200,164,93,0.35);
+  transform: translateX(-6px);
+  background: rgba(20,20,20,0.85);
+}
+.stat-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.stat-card-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.55);
+  font-weight: 500;
+}
+
+/* ===================== SERVICES ===================== */
+.section {
+  padding: 120px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.section-full { padding: 120px 0; }
+.section-header { text-align: center; margin-bottom: 72px; }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-top: 16px;
+}
+.section-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 540px;
+  margin: 16px auto 0;
+  line-height: 1.8;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(200,164,93,0.08);
+  border: 1px solid rgba(200,164,93,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.service-card {
+  background: var(--dark);
+  padding: 44px 36px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,164,93,0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  transition: width 0.5s ease;
+}
+.service-card:hover::before { opacity: 1; }
+.service-card:hover::after { width: 100%; }
+.service-card:hover { background: var(--dark2); }
+.service-icon {
+  width: 56px; height: 56px;
+  background: rgba(200,164,93,0.08);
+  border: 1px solid rgba(200,164,93,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.4s;
+}
+.service-card:hover .service-icon {
+  background: rgba(200,164,93,0.15);
+  border-color: rgba(200,164,93,0.35);
+  transform: scale(1.05);
+}
+.service-icon svg { color: var(--gold); }
+.service-num {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(200,164,93,0.05);
+  line-height: 1;
+  transition: color 0.4s;
+}
+.service-card:hover .service-num { color: rgba(200,164,93,0.1); }
+.service-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.service-card:hover .service-title { color: var(--gold-light); }
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.service-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s;
+}
+.service-card:hover .service-arrow { opacity: 1; transform: translateY(0); }
+
+/* ===================== WHY ASPAC ===================== */
+.why-section {
+  background: var(--dark);
+  padding: 120px 0;
+}
+.why-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.why-image-wrap {
+  position: relative;
+}
+.why-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.why-image-frame {
+  position: absolute;
+  bottom: -24px; right: -24px;
+  width: 60%;
+  aspect-ratio: 4/3;
+  background:
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&auto=format&fit=crop') center/cover;
+  border-radius: 4px;
+  border: 4px solid var(--dark);
+}
+.why-badge {
+  position: absolute;
+  top: 24px; left: -20px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  border-radius: 8px;
+  padding: 16px 20px;
+  text-align: center;
+}
+.why-badge-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1;
+}
+.why-badge-txt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.7);
+  margin-top: 2px;
+}
+.why-content { }
+.why-list { margin-top: 36px; display: flex; flex-direction: column; gap: 18px; }
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(200,164,93,0.06);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.why-item:hover {
+  background: rgba(200,164,93,0.04);
+  border-color: rgba(200,164,93,0.15);
+  transform: translateX(6px);
+}
+.why-check {
+  width: 28px; height: 28px;
+  background: rgba(200,164,93,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.why-item-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.why-item-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ===================== PROJECTS ===================== */
+.projects-section { background: var(--black); }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2px;
+  background: rgba(200,164,93,0.06);
+}
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+}
+.project-card.tall { aspect-ratio: 3/4; grid-row: span 2; }
+.project-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.project-card:hover .project-img { transform: scale(1.08); }
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  transform: translateY(10px);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+.project-card:hover .project-overlay { opacity: 1; transform: translateY(0); }
+.project-cat {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.project-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.project-loc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: rgba(250,250,248,0.5);
+}
+
+/* ===================== PROCESS ===================== */
+.process-section {
+  background: var(--dark);
+  padding: 120px 48px;
+}
+.process-inner { max-width: 1400px; margin: 0 auto; }
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 72px;
+}
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 36px; left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,164,93,0.3), rgba(200,164,93,0.6), rgba(200,164,93,0.3), transparent);
+}
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+}
+.process-dot-wrap {
+  width: 72px; height: 72px;
+  position: relative;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+.process-dot-ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(200,164,93,0.25);
+  border-radius: 50%;
+}
+.process-dot {
+  position: absolute;
+  inset: 8px;
+  background: var(--dark2);
+  border: 1px solid rgba(200,164,93,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  transition: all 0.4s;
+}
+.process-step:hover .process-dot {
+  background: rgba(200,164,93,0.12);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.process-step:hover .process-dot-ring {
+  border-color: rgba(200,164,93,0.5);
+}
+.process-step-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.process-step-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.process-step-icon {
+  margin-bottom: 12px;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+/* ===================== STATS ===================== */
+.stats-section {
+  background: var(--black);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,164,93,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(200,164,93,0.06);
+  border: 1px solid rgba(200,164,93,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-item {
+  background: var(--dark);
+  padding: 56px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.stat-item:hover { background: var(--dark2); }
+.stat-item:hover::before { opacity: 1; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ===================== CERTIFICATES ===================== */
+.certs-section {
+  background: var(--dark);
+  padding: 120px 48px;
+}
+.certs-inner { max-width: 1400px; margin: 0 auto; }
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 72px;
+}
+.cert-card {
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(200,164,93,0.1);
+  border-radius: 12px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: default;
+}
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.cert-card:hover {
+  background: rgba(200,164,93,0.04);
+  border-color: rgba(200,164,93,0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+.cert-card:hover::before { opacity: 1; }
+.cert-icon {
+  width: 60px; height: 60px;
+  background: rgba(200,164,93,0.08);
+  border: 1px solid rgba(200,164,93,0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--gold);
+}
+.cert-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.cert-issuer {
+  font-size: 0.8rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.cert-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.cert-shine {
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(200,164,93,0.04), transparent 70%);
+  pointer-events: none;
+}
+
+/* ===================== CTA ===================== */
+.cta-section {
+  padding: 0 48px 120px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.cta-banner {
+  background:
+    linear-gradient(135deg, rgba(10,10,10,0.95), rgba(26,26,26,0.9)),
+    url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80&auto=format&fit=crop') center/cover;
+  border: 1px solid rgba(200,164,93,0.15);
+  border-radius: 16px;
+  padding: 80px 64px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,164,93,0.3), transparent);
+}
+.cta-glow {
+  position: absolute;
+  top: -80px; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,164,93,0.08), transparent 70%);
+  pointer-events: none;
+}
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  position: relative;
+}
+.cta-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 44px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  position: relative;
+}
+.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background: var(--dark);
+  border-top: 1px solid rgba(200,164,93,0.08);
+  padding: 80px 48px 40px;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand {}
+.footer-brand-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.footer-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 300px;
+  margin-bottom: 28px;
+}
+.footer-socials { display: flex; gap: 12px; }
+.social-btn {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,164,93,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.social-btn:hover {
+  background: rgba(200,164,93,0.1);
+  border-color: rgba(200,164,93,0.3);
+  color: var(--gold);
+}
+.footer-col-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-links a::before {
+  content: '';
+  width: 12px; height: 1px;
+  background: rgba(200,164,93,0.3);
+  flex-shrink: 0;
+  transition: background 0.3s, width 0.3s;
+}
+.footer-links a:hover::before { background: var(--gold); width: 16px; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.contact-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact-item a { color: var(--muted); text-decoration: none; transition: color 0.3s; }
+.contact-item a:hover { color: var(--gold-light); }
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: rgba(200,164,93,0.08);
+  border: 1px solid rgba(200,164,93,0.2);
+  border-radius: 4px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.map-btn:hover {
+  background: rgba(200,164,93,0.15);
+  border-color: rgba(200,164,93,0.4);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(136,136,128,0.6);
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(200,164,93,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card.tall { grid-row: span 1; aspect-ratio: 4/3; }
+  .process-timeline { grid-template-columns: repeat(3, 1fr); }
+  .process-timeline::before { display: none; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .navbar { padding: 0 24px; }
+  .nav-menu { display: none; }
+  .nav-quote { display: none; }
+  .hamburger { display: flex; }
+  .hero-inner { flex-direction: column; padding: 0 24px; padding-top: 100px; }
+  .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .hero-stat-card { min-width: 140px; flex: 1; }
+  .section { padding: 80px 24px; }
+  .process-section { padding: 80px 24px; }
+  .stats-section { padding: 80px 24px; }
+  .certs-section { padding: 80px 24px; }
+  .cta-section { padding: 0 24px 80px; }
+  .footer { padding: 60px 24px 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .why-inner { grid-template-columns: 1fr; padding: 0 24px; }
+  .why-image-frame { display: none; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .certs-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .process-timeline { grid-template-columns: 1fr 1fr; }
+  .cta-banner { padding: 48px 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .stats-inner { grid-template-columns: 1fr; }
+  .process-timeline { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat-card { min-width: unset; }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+const { useState, useEffect, useRef } = React;
+
+// ── SVG Icons (inline, no external dep) ──────────────────────
+const Icon = ({ name, size = 20, color = 'currentColor' }) => {
+  const icons = {
+    building: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><rect x="9" y="6" width="2" height="2"/><rect x="13" y="6" width="2" height="2"/></svg>,
+    road: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 20L12 4L21 20"/><line x1="12" y1="13" x2="12" y2="20"/><line x1="7.5" y1="17" x2="16.5" y2="17"/></svg>,
+    hospital: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>,
+    layers: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
+    zap: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    package: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>,
+    check: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+    arrow: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>,
+    map: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+    mail: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
+    phone: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+    award: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>,
+    shield: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+    star: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>,
+    menu: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+    x: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+    linkedin: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>,
+    instagram: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
+    whatsapp: <svg width={size} height={size} viewBox="0 0 24 24" fill={color} stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.998 2.003C6.475 2.003 2 6.478 2 12.002c0 1.761.464 3.413 1.277 4.849L2 22l5.29-1.388c1.383.755 2.976 1.194 4.708 1.194 5.523 0 9.998-4.475 9.998-9.999 0-5.523-4.475-9.804-10-9.804z"/></svg>,
+    globe: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+    clock: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+    eye: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
+    users: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    tool: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>,
+    truck: <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>,
+  };
+  return icons[name] || null;
+};
+
+// ── useReveal hook ─────────────────────────────────────────────
+function useReveal() {
+  useEffect(() => {
+    const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
+    );
+    targets.forEach(t => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
+}
+
+// ── Counter hook ───────────────────────────────────────────────
+function useCounter(target, suffix = '', duration = 2000) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        const start = Date.now();
+        const tick = () => {
+          const elapsed = Date.now() - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          setCount(Math.round(target * ease));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target, duration]);
+  return { count, ref };
+}
+
+// ══════════════════════════════════════════════════════════════
+// NAVBAR
+// ══════════════════════════════════════════════════════════════
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  const navLinks = ['Home','About','Services','Projects','Certificates','Contact'];
+
+  const scrollTo = (id) => {
+    setMobileOpen(false);
+    if (id === 'Home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const el = document.getElementById(id.toLowerCase());
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <a href="#" className="nav-logo" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+          <div className="nav-logo-mark">A</div>
+          <div className="nav-logo-text">
+            <span className="nav-logo-name">ASPAC</span>
+            <span className="nav-logo-sub">Construction</span>
+          </div>
+        </a>
+        <ul className="nav-menu">
+          {navLinks.map(l => (
+            <li key={l}><a href="#" onClick={e => { e.preventDefault(); scrollTo(l); }}>{l}</a></li>
+          ))}
+        </ul>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <a href="#" className="btn-gold nav-quote" onClick={e => { e.preventDefault(); scrollTo('Contact'); }}>
+            <span>Get Quote</span>
+          </a>
+          <button className="hamburger" onClick={() => setMobileOpen(true)}>
+            <Icon name="menu" size={22} color="white"/>
+          </button>
+        </div>
+      </nav>
+      {mobileOpen && (
+        <div className="mobile-nav open">
+          <button className="mobile-close" onClick={() => setMobileOpen(false)}><Icon name="x" size={24} color="white"/></button>
+          {navLinks.map(l => (
+            <a key={l} href="#" onClick={e => { e.preventDefault(); scrollTo(l); }}>{l}</a>
+          ))}
+          <a href="#" className="btn-gold" style={{ marginTop: 16 }} onClick={e => { e.preventDefault(); scrollTo('Contact'); }}>
+            <span>Get Quote</span>
+          </a>
+        </div>
+      )}
+    </>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// HERO
+// ══════════════════════════════════════════════════════════════
+const Hero = () => {
+  const heroStats = [
+    { num: '2016', label: 'Founded' },
+    { num: '100+', label: 'Projects Delivered' },
+    { num: '2', label: 'Countries Active' },
+    { num: '100%', label: 'Engineering Excellence' },
+  ];
+  const tags = ['Construction', 'Infrastructure', 'Hospitals', 'Aluminium Works', 'Electrical Panels', 'Packaging'];
+  const delays = [0, 0.15, 0.3, 0.45];
+
+  return (
+    <section className="hero" id="home">
+      <div className="hero-bg"></div>
+      <div className="hero-inner">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <div className="hero-badge-dot"></div>
+            <span>Turkey & Iraq — Since 2016</span>
+          </div>
+          <h1 className="hero-headline">
+            Building Iraq's<br/>
+            Future with<br/>
+            <em>Turkish Quality.</em>
+          </h1>
+          <div className="hero-divider">
+            <div className="hero-divider-line"></div>
+            <span className="hero-services">Integrated Construction Solutions</span>
+          </div>
+          <div className="hero-subtext">
+            {tags.map(t => <span key={t} className="hero-tag">{t}</span>)}
+          </div>
+          <div className="hero-ctas">
+            <a href="#" className="btn-gold" onClick={e => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              <span>Explore Projects</span>
+              <Icon name="arrow" size={16} color="currentColor"/>
+            </a>
+            <a href="#" className="btn-outline" onClick={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+        <div className="hero-stats">
+          {heroStats.map((s, i) => (
+            <div key={i} className={`hero-stat-card animate-float${(i % 3) + 1}`} style={{ animationDelay: `${i * 0.4}s` }}>
+              <div className="stat-card-num gold-text">{s.num}</div>
+              <div className="stat-card-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="hero-scroll" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
+        <span>Scroll</span>
+        <div className="scroll-line"></div>
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// SERVICES
+// ══════════════════════════════════════════════════════════════
+const Services = () => {
+  useReveal();
+  const services = [
+    { icon: 'building', title: 'Construction & Finishing', desc: 'Comprehensive construction projects with strict adherence to timelines, from foundations to full interior finishing.', num: '01' },
+    { icon: 'road', title: 'Infrastructure Works', desc: 'Roads, bridges, utilities, and civil engineering solutions built to international standards across Iraq.', num: '02' },
+    { icon: 'hospital', title: 'Hospital Projects', desc: 'Specialized hospital outfitting and medical center construction, including fully equipped operating theaters.', num: '03' },
+    { icon: 'layers', title: 'Aluminium & Facades', desc: 'Premium facade cladding and diverse aluminium works, backed by our dedicated manufacturing facility in Iraq.', num: '04' },
+    { icon: 'zap', title: 'Electrical Panels', desc: 'Design and installation of industrial and commercial electrical panel systems by certified engineers.', num: '05' },
+    { icon: 'package', title: 'Packaging Solutions', desc: 'High-capacity packaging plant in Istanbul, supplying industrial and commercial facilities across the region.', num: '06' },
+  ];
+  return (
+    <section id="services" style={{ background: 'var(--black)', padding: '120px 0' }}>
+      <div className="section">
+        <div className="section-header reveal">
+          <span className="section-label" style={{ justifyContent: 'center' }}>Our Expertise</span>
+          <h2 className="section-title">Integrated Solutions<br/><span className="gold-text">Across Every Discipline</span></h2>
+          <p className="section-desc">From structural engineering to precision electrical systems — ASPAC delivers end-to-end construction excellence.</p>
+        </div>
+        <div className="services-grid reveal">
+          {services.map((s, i) => (
+            <div key={i} className="service-card">
+              <span className="service-num">{s.num}</span>
+              <div className="service-icon"><Icon name={s.icon} size={24} color="var(--gold)"/></div>
+              <div className="service-title">{s.title}</div>
+              <p className="service-desc">{s.desc}</p>
+              <div className="service-arrow">Learn more <Icon name="arrow" size={14} color="var(--gold)"/></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// WHY ASPAC
+// ══════════════════════════════════════════════════════════════
+const WhyAspac = () => {
+  const reasons = [
+    { title: 'Turkish Engineering Expertise', desc: 'Headquarters in Istanbul with world-class engineering standards applied to every project.' },
+    { title: 'Operating in Iraq Since 2016', desc: 'Deep local knowledge across Baghdad, Karbala, and major Iraqi cities.' },
+    { title: 'Integrated End-to-End Solutions', desc: 'From concept and design to execution and delivery — one trusted partner.' },
+    { title: 'High Quality Execution', desc: 'Manufacturing-grade precision with rigorous quality control at every phase.' },
+    { title: 'Experienced Engineering Team', desc: 'Globally certified engineers and specialists supervising every site.' },
+    { title: 'On-Time Delivery', desc: 'Our track record across 100+ projects speaks to our commitment to timelines.' },
+  ];
+  return (
+    <section id="about" className="why-section">
+      <div className="why-inner">
+        <div className="reveal-left why-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop"
+            alt="ASPAC Construction Site"
+            className="why-image"
+          />
+          <div className="why-image-frame"></div>
+          <div className="why-badge">
+            <div className="why-badge-num">10+</div>
+            <div className="why-badge-txt">Years Active</div>
+          </div>
+        </div>
+        <div className="reveal-right why-content">
+          <span className="section-label">Why Choose Us</span>
+          <h2 className="section-title" style={{ marginTop: 16 }}>The ASPAC<br/><span className="gold-text">Advantage</span></h2>
+          <p style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.8, marginTop: 16 }}>
+            Combining Turkish engineering precision with boots-on-the-ground Iraqi expertise, ASPAC delivers outcomes others promise.
+          </p>
+          <div className="why-list">
+            {reasons.map((r, i) => (
+              <div key={i} className="why-item">
+                <div className="why-check"><Icon name="check" size={14} color="var(--gold)"/></div>
+                <div>
+                  <div className="why-item-title">{r.title}</div>
+                  <div className="why-item-desc">{r.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// PROJECTS
+// ══════════════════════════════════════════════════════════════
+const Projects = () => {
+  const projects = [
+    { img: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80&auto=format&fit=crop', title: 'Al-Karbala Medical Center', cat: 'Hospital', loc: 'Karbala, Iraq', tall: true },
+    { img: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop', title: 'Riverside Hotel Tower', cat: 'Hotel', loc: 'Baghdad, Iraq' },
+    { img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80&auto=format&fit=crop', title: 'Bayat Residential Complex', cat: 'Residential', loc: 'Erbil, Iraq' },
+    { img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop', title: 'Karbala Highway Bridge', cat: 'Infrastructure', loc: 'Karbala, Iraq' },
+    { img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop', title: 'TechPark Commercial Hub', cat: 'Commercial', loc: 'Baghdad, Iraq' },
+    { img: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80&auto=format&fit=crop', title: 'Al-Rasheed Power Station', cat: 'Power Station', loc: 'Basra, Iraq' },
+  ];
+  return (
+    <section id="projects" style={{ background: 'var(--black)', padding: '120px 0 0' }}>
+      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px' }}>
+        <div className="section-header reveal" style={{ marginBottom: 48 }}>
+          <span className="section-label" style={{ justifyContent: 'center' }}>Our Portfolio</span>
+          <h2 className="section-title">Featured<br/><span className="gold-text">Projects</span></h2>
+          <p className="section-desc">From hospitals to power stations — every project reflects our unwavering commitment to quality.</p>
+        </div>
+      </div>
+      <div className="projects-grid reveal">
+        {projects.map((p, i) => (
+          <div key={i} className={`project-card ${p.tall ? 'tall' : ''}`}>
+            <img src={p.img} alt={p.title} className="project-img" loading="lazy"/>
+            <div className="project-overlay">
+              <div className="project-cat">{p.cat}</div>
+              <div className="project-name">{p.title}</div>
+              <div className="project-loc">
+                <Icon name="map" size={12} color="rgba(200,164,93,0.7)"/>
+                {p.loc}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// PROCESS
+// ══════════════════════════════════════════════════════════════
+const Process = () => {
+  const steps = [
+    { num: '01', title: 'Consultation', desc: 'Understanding your vision, site conditions, and project goals in detail.', icon: 'users' },
+    { num: '02', title: 'Planning', desc: 'Detailed project planning, budget estimation, and feasibility studies.', icon: 'eye' },
+    { num: '03', title: 'Engineering', desc: 'Architectural, civil, and electrical design by certified engineers.', icon: 'tool' },
+    { num: '04', title: 'Execution', desc: 'On-site implementation with continuous supervision and quality control.', icon: 'building' },
+    { num: '05', title: 'Delivery', desc: 'Final inspection, handover, and after-project support guaranteed.', icon: 'truck' },
+  ];
+  return (
+    <section id="process" className="process-section">
+      <div className="process-inner">
+        <div className="section-header reveal">
+          <span className="section-label" style={{ justifyContent: 'center' }}>Our Methodology</span>
+          <h2 className="section-title">How We<br/><span className="gold-text">Work</span></h2>
+          <p className="section-desc">A proven 5-phase process refined across 100+ projects in Turkey and Iraq.</p>
+        </div>
+        <div className="process-timeline">
+          {steps.map((s, i) => (
+            <div key={i} className="process-step reveal" style={{ transitionDelay: `${i * 0.12}s` }}>
+              <div className="process-dot-wrap">
+                <div className="process-dot-ring"></div>
+                <div className="process-dot">{s.num}</div>
+              </div>
+              <div className="process-step-icon"><Icon name={s.icon} size={16} color="var(--gold)"/></div>
+              <div className="process-step-title">{s.title}</div>
+              <p className="process-step-desc">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// STATS
+// ══════════════════════════════════════════════════════════════
+const StatItem = ({ target, suffix, label }) => {
+  const { count, ref } = useCounter(target);
+  return (
+    <div className="stat-item" ref={ref}>
+      <div className="stat-num">{count}{suffix}</div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+};
+const Stats = () => (
+  <section style={{ background: 'var(--black)' }}>
+    <div className="stats-section">
+      <div className="stats-inner">
+        <StatItem target={10} suffix="+" label="Years of Experience"/>
+        <StatItem target={100} suffix="+" label="Projects Completed"/>
+        <StatItem target={2} suffix="" label="Countries"/>
+        <StatItem target={100} suffix="%" label="Client Satisfaction"/>
+      </div>
+    </div>
+  </section>
+);
+
+// ══════════════════════════════════════════════════════════════
+// CERTIFICATES
+// ══════════════════════════════════════════════════════════════
+const Certificates = () => {
+  const certs = [
+    { icon: 'award', title: 'Ministry of Trade Registration', issuer: 'Republic of Iraq', desc: 'Officially registered foreign company representation office approved by the Iraqi Ministry of Trade since 29/03/2016.' },
+    { icon: 'shield', title: 'ISO 9001 Quality Management', issuer: 'International Standards Body', desc: 'Certified quality management systems ensuring all construction and manufacturing meets global excellence standards.' },
+    { icon: 'star', title: 'Engineering Excellence Award', issuer: 'Turkey-Iraq Trade Council', desc: 'Recognized for outstanding contribution to cross-border construction and infrastructure development projects.' },
+    { icon: 'globe', title: 'International Trade License', issuer: 'Istanbul Chamber of Commerce', desc: 'Licensed for international trade operations with headquarters in Beylikdüzü, Istanbul, Turkey.' },
+    { icon: 'zap', title: 'Electrical Systems Certification', issuer: 'Iraqi Engineering Union', desc: 'Certified to design and install industrial and commercial electrical panel systems across Iraq.' },
+    { icon: 'layers', title: 'Aluminium Works Authorization', issuer: 'Building Standards Authority', desc: 'Authorized manufacturer and installer of architectural aluminium works and building facade systems.' },
+  ];
+  return (
+    <section id="certificates" className="certs-section">
+      <div className="certs-inner">
+        <div className="section-header reveal">
+          <span className="section-label" style={{ justifyContent: 'center' }}>Credentials</span>
+          <h2 className="section-title">Certifications &<br/><span className="gold-text">Licenses</span></h2>
+          <p className="section-desc">Every project backed by internationally recognized certifications and regulatory approvals.</p>
+        </div>
+        <div className="certs-grid">
+          {certs.map((c, i) => (
+            <div key={i} className="cert-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+              <div className="cert-shine"></div>
+              <div className="cert-icon"><Icon name={c.icon} size={26} color="var(--gold)"/></div>
+              <div className="cert-title">{c.title}</div>
+              <div className="cert-issuer">{c.issuer}</div>
+              <p className="cert-desc">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// CTA
+// ══════════════════════════════════════════════════════════════
+const CTA = () => (
+  <section style={{ background: 'var(--black)' }}>
+    <div className="cta-section">
+      <div className="cta-banner reveal">
+        <div className="cta-glow"></div>
+        <h2 className="cta-title">Let's Build Something<br/><span className="gold-text">Great Together.</span></h2>
+        <p className="cta-sub">Whether it's a hospital in Karbala or a commercial tower in Baghdad — our team is ready to make it exceptional.</p>
+        <div className="cta-actions">
+          <a href="#" className="btn-gold" onClick={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <span>Request Proposal</span>
+            <Icon name="arrow" size={16} color="currentColor"/>
+          </a>
+          <a href="tel:+9647830603351" className="btn-outline">
+            <Icon name="phone" size={15} color="currentColor"/>
+            <span>Call Us Now</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ══════════════════════════════════════════════════════════════
+// FOOTER
+// ══════════════════════════════════════════════════════════════
+const Footer = () => {
+  const quickLinks = ['Home','About','Services','Projects','Certificates'];
+  const serviceLinks = ['Construction','Infrastructure','Hospital Projects','Aluminium Works','Electrical Panels','Packaging'];
+  const scrollTo = (id) => {
+    if (id === 'Home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+  };
+  return (
+    <footer id="contact" className="footer">
+      <div className="footer-inner">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <div className="footer-brand-logo">
+              <div className="nav-logo-mark">A</div>
+              <div className="nav-logo-text">
+                <span className="nav-logo-name">ASPAC</span>
+                <span className="nav-logo-sub">Construction & Trade</span>
+              </div>
+            </div>
+            <p className="footer-desc">
+              Leading construction, infrastructure, and general trading company with headquarters in Istanbul and operations across Iraq since 2016.
+            </p>
+            <div className="footer-socials">
+              <div className="social-btn"><Icon name="linkedin" size={15} color="currentColor"/></div>
+              <div className="social-btn"><Icon name="instagram" size={15} color="currentColor"/></div>
+              <div className="social-btn"><Icon name="whatsapp" size={15} color="currentColor"/></div>
+              <div className="social-btn"><Icon name="globe" size={15} color="currentColor"/></div>
+            </div>
+          </div>
+          <div>
+            <div className="footer-col-title">Quick Links</div>
+            <ul className="footer-links">
+              {quickLinks.map(l => (
+                <li key={l}><a href="#" onClick={e => { e.preventDefault(); scrollTo(l); }}>{l}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <div className="footer-col-title">Services</div>
+            <ul className="footer-links">
+              {serviceLinks.map(l => <li key={l}><a href="#">{l}</a></li>)}
+            </ul>
+          </div>
+          <div>
+            <div className="footer-col-title">Contact Us</div>
+            <div className="contact-item">
+              <Icon name="phone" size={15} color="var(--gold)" />
+              <div>
+                <a href="tel:+9647830603351">+964 (783) 060 3351</a><br/>
+                <a href="tel:+905398159099">+90 (539) 815 9099</a>
+              </div>
+            </div>
+            <div className="contact-item">
+              <Icon name="mail" size={15} color="var(--gold)"/>
+              <div>
+                <a href="mailto:Aspaj.C@hotmail.com">Aspaj.C@hotmail.com</a><br/>
+                <a href="mailto:Ali@aspacambalaj.com">Ali@aspacambalaj.com</a>
+              </div>
+            </div>
+            <div className="contact-item">
+              <Icon name="map" size={15} color="var(--gold)"/>
+              <div style={{ color: 'var(--muted)' }}>
+                <div>Adnan Kahveci Mah, Beylıkdüzü</div>
+                <div>Istanbul, Turkey</div>
+                <div style={{ marginTop: 6 }}>Al-Baladeieh, Karbala, Iraq</div>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Beylikduzu+Istanbul" target="_blank" rel="noopener" className="map-btn">
+              <Icon name="map" size={14} color="currentColor"/>
+              Open in Maps
+            </a>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p className="footer-copy">© 2025 ASPAC Construction & General Trade. All rights reserved.</p>
+          <p className="footer-tagline">Building the Future, One Structure at a Time.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+// ══════════════════════════════════════════════════════════════
+// APP ROOT
+// ══════════════════════════════════════════════════════════════
+const App = () => {
+  useReveal();
+  return (
+    <>
+      <Navbar/>
+      <Hero/>
+      <Services/>
+      <WhyAspac/>
+      <Projects/>
+      <Process/>
+      <Stats/>
+      <Certificates/>
+      <CTA/>
+      <Footer/>
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
