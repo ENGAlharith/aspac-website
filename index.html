@@ -697,6 +697,22 @@ body{
 .pf-bar-fill.pf-full{background:linear-gradient(90deg,var(--teal),var(--teal-light));box-shadow:0 0 9px rgba(56,208,189,0.55);}
 .pf-pct{color:var(--muted);min-width:42px;}
 .pf-pct.pf-done{color:var(--teal-light);}
+.pf-bar-fill{transform-origin:left center;animation:pfGrow .9s cubic-bezier(.2,.8,.2,1) both;}
+[dir="rtl"] .pf-bar-fill{transform-origin:right center;}
+@keyframes pfGrow{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+
+/* FIX: status-bar fill must be a block for its width% to apply (was inline -> 0px) */
+.pf-bar-fill{display:block;}
+/* FIX: Arabic section headlines -> proper Arabic serif, kept centered */
+[dir="rtl"] .section-title{font-family:'Amiri','Cormorant Garamond',serif;}
+[dir="rtl"] .section-header,[dir="rtl"] .section-title,[dir="rtl"] .section-desc,[dir="rtl"] .section-label{text-align:center;}
+/* FIX: mobile scroll cue -> chevron (no "mouse" metaphor on phones) */
+.hs-chevron{display:none;color:rgba(255,255,255,0.85);}
+@media(max-width:768px){
+  .hero-scroll .hs-mouse{display:none;}
+  .hero-scroll .hs-chevron{display:block;animation:hsBounce 1.6s ease-in-out infinite;}
+}
+@keyframes hsBounce{0%,100%{transform:translateY(0);opacity:.65;}50%{transform:translateY(7px);opacity:1;}}
 </style>
 </head>
 <body>
@@ -764,7 +780,7 @@ body{
 <div class="hero-stat-card animate-float1" style="animation-delay:1.2s"><div class="stat-card-num" data-ar="٦">6</div><div class="stat-card-label" data-ar="قطاعات نخدمها">Sectors Served</div></div>
 </aside>
 </div>
-<a href="#services" class="hero-scroll" aria-label="Scroll to content"><span class="hs-mouse" aria-hidden="true"><span class="hs-wheel"></span></span><span class="hs-label" data-ar="مرّر">Scroll</span></a>
+<a href="#services" class="hero-scroll" aria-label="Scroll to content"><span class="hs-mouse" aria-hidden="true"><span class="hs-wheel"></span></span><span class="hs-chevron" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span><span class="hs-label" data-ar="مرّر">Scroll</span></a>
 </section>
 <section id="services" class="services-bg">
 <div class="section">
@@ -964,7 +980,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="توزلا، تركيا">Tuzla, Türkiye</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2016</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مشروع المستشفى الاستثماري">Investment Hospital Project</td>
@@ -972,7 +988,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2019–2021</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مستشفى الشيخ أحمد الوائلي التعليمي">Al-Waeli Educational Hospital</td>
@@ -980,7 +996,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2013–2020</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="المستشفى العراقي الألماني">Iraq–German Hospital</td>
@@ -988,7 +1004,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="بغداد، العراق">Baghdad, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2021–2023</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="عيادات المجتبى">Al-Mujtaba Clinics</td>
@@ -996,7 +1012,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2018–2020</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مستشفى خديجة">Khadijah Hospital</td>
@@ -1004,7 +1020,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2019–2022</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مستشفى الحياة">Life Hospital</td>
@@ -1012,7 +1028,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="النجف، العراق">Najaf, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2018–2019</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hospital">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مستشفى الأمين">Al-Amin Hospital</td>
@@ -1020,7 +1036,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="العراق">Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">—</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hotel">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="فندق دايموند">Diamond Hotel</td>
@@ -1028,7 +1044,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hotel">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="فندق الريان">Al-Rayan Hotel</td>
@@ -1036,7 +1052,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017–2019</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hotel">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="فندق أسد الطف">Assad Al-Tuff Hotel</td>
@@ -1044,7 +1060,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Hotel">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="فندق الهدى">Alhuda Hotel</td>
@@ -1068,7 +1084,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2018</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Commercial">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مول الجشعمي">Al Jasheami Mall</td>
@@ -1076,7 +1092,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017–2019</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Commercial">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مركز روز للتجميل والأسنان">Rose Cosmetic &amp; Dental Center</td>
@@ -1084,7 +1100,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="الحلة، العراق">Hilla, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017–2019</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Commercial">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="الحسينية الكويتية">Kuwaiti Husseiniya</td>
@@ -1092,7 +1108,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2016–2020</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Commercial">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="الجامع المركزي">Central Mosque</td>
@@ -1100,7 +1116,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">—</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Residential">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="العتبة الحسينية — مبنى الأقسام الهندسية">Imam Hussain Shrine — Eng. Building</td>
@@ -1108,7 +1124,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2014–2017</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Residential">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="القصر الجمهوري">The President&#x27;s Palace</td>
@@ -1116,7 +1132,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="السليمانية، العراق">Sulaymaniyah, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2005–2008</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Residential">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مجمع بني هاشم">Bani Hashem Complex</td>
@@ -1124,7 +1140,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2016–2018</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Residential">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مبنى الصدقة الجارية للإمام علي (ع)">Imam Ali Ongoing Charity Building</td>
@@ -1132,7 +1148,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="كربلاء، العراق">Karbala, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2017–2019</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Residential">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="مجمع بوليفارد السكني">Polifard Housing</td>
@@ -1164,7 +1180,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="بغداد، العراق">Baghdad, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">2022–2024</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 <tr data-type="Infrastructure">
 <td class="pf-name" data-label="Project" data-label-ar="المشروع" data-ar="محطة كهرباء بازركان">Bazargan Power Station</td>
@@ -1172,7 +1188,7 @@ body{
 <td class="pf-loc" data-label="Location" data-label-ar="الموقع" data-ar="ميسان، العراق">Maysan, Iraq</td>
 <td class="pf-val pf-req" data-label="Value" data-label-ar="القيمة" data-ar="عند الطلب">On request</td>
 <td class="pf-years" data-label="Years" data-label-ar="السنوات">—</td>
-<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="١٠٠٪">100%</span></div></td>
+<td data-label="Status" data-label-ar="الحالة"><div class="pf-status"><span class="pf-bar"><span class="pf-bar-fill" style="width:100%"></span></span><span class="pf-pct pf-done" data-ar="100%">100%</span></div></td>
 </tr>
 </tbody></table></div></div></section>
 <section id="process" class="process-section">
@@ -1683,18 +1699,7 @@ body.pd-lock{overflow:hidden;}
 
   /* animate status bars to their percentage when the table scrolls in */
   var fills=document.querySelectorAll('.pf-table .pf-bar-fill');
-  fills.forEach(function(f){ f.dataset.target=f.style.width||'0%'; if((f.dataset.target||'').trim()==='100%')f.classList.add('pf-full'); f.style.width='0%'; });
-  var tbl=document.querySelector('.pf-table');
-  if(tbl){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){
-        document.querySelectorAll('.pf-table .pf-bar-fill').forEach(function(f){ f.style.width=f.dataset.target||'0%'; });
-        io.disconnect();
-      }});
-    },{threshold:0.12});
-    io.observe(tbl);
-    setTimeout(function(){document.querySelectorAll('.pf-table .pf-bar-fill').forEach(function(f){f.style.width=f.dataset.target||'0%';});},4000);
-  }
+  fills.forEach(function(f){ if((f.style.width||'').trim()==='100%')f.classList.add('pf-full'); });
 })();
 </script>
 
